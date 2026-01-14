@@ -33,7 +33,7 @@
 </style>
 
 <div class="page-content tex2jax_process">
-    <h1 id="01">문제 01 배열 정렬하기★</h1>
+    <h1>문제 01 배열 정렬하기★</h1>
     <p>저자 권장 시간 _ 10분 | 권장 시간 복잡도 _ O(NlogN) | 출제 _ 저자 출제</p>
     <p><a href="https://github.com/dremdeveloper/codingtest_python/blob/main/solution/01.py" data-google-vignette="false">깃허브 URL</a></p>
     <hr>
