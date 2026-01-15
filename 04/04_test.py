@@ -8,15 +8,15 @@ def solution(param_list):
         [3,3,1,1,2,2,4,4,5,5]
     ]
     count_correct = [0 for _ in range(len(patterns))]
-    for i in range(len(param_list)):
-        for j in range(len(patterns)):
-            idx = i % len(patterns[j])
-            if param_list[i] == patterns[j][idx]:
+    for i, answer in enumerate(param_list):
+        for j, pattern in enumerate(patterns):
+            if(answer == pattern[i % len(pattern)]):
                 count_correct[j] += 1
+
     result = []
     max_value = max(count_correct)
-    for i in range(len(patterns)):
-        if max_value == count_correct[i]:
+    for i, count in enumerate(count_correct):
+        if count == max_value:
             result.append(i+1)
     return result
 
