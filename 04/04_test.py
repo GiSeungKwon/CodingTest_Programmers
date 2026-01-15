@@ -7,18 +7,17 @@ def solution(param_list):
         [2,1,2,3,2,4,2,5],
         [3,3,1,1,2,2,4,4,5,5]
     ]
-    count_correct = [0 for _ in range(len(patterns))]
-    for i, answer in enumerate(param_list):
-        for j, pattern in enumerate(patterns):
-            if(answer == pattern[i % len(pattern)]):
-                count_correct[j] += 1
-
-    result = []
-    max_value = max(count_correct)
-    for i, count in enumerate(count_correct):
-        if count == max_value:
-            result.append(i+1)
-    return result
+    result = [0 for _ in range(len(patterns))]
+    for i, item in enumerate(param_list):
+        for j, jtem in enumerate(patterns):
+            if item == jtem[i % len(jtem)]:
+                result[j] += 1
+    max_value = max(result)
+    return_list = []
+    for i, item in enumerate(result):
+        if item == max_value:
+            return_list.append(i+1)
+    return return_list
 
 print(case1, "->", solution(case1))
 print(case2, "->", solution(case2))
