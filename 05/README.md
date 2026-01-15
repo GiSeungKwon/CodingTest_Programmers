@@ -33,9 +33,9 @@
 </style>
 
 <div class="page-content tex2jax_process">
-    <h1>문제 04 모의고사★</h1>
-    <p>정답률 _ 62% | 저자 권장 시간 _ 30분 | 권장 시간 복잡도 _ O(N) | 출제 _ 완전 탐색</p>
-    <p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42840" data-google-vignette="false">문제 URL</a></p>
+    <h1>문제 05 행렬의 곱셈★</h1>
+    <p>정답률 _ 63% | 저자 권장 시간 _ 40분 | 권장 시간 복잡도 _ O(N3) | 출제 _ 연습문제</p>
+    <p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/12949" data-google-vignette="false">문제 URL</a></p>
     <hr>
     <p>수포자는 수학을 포기한 사람을 줄인 표현입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.</p>
     <ul>
