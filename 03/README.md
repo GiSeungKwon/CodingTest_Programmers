@@ -35,7 +35,7 @@
 <div class="page-content tex2jax_process">
     <h1>문제 03 두 개 뽑아서 더하기★</h1>
     <p>정답률 _ 68% | 저자 권장 시간 _ 30분 | 권장 시간 복잡도 _ O(N2log(N2)) | 출제 _ 월간 코드 챌린지</p>
-    <a href="https://programmers.co.kr/learn/courses/30/lessons/68644" data-google-vignette="false">문제 URL</a>
+    <p><a href="https://programmers.co.kr/learn/courses/30/lessons/68644" data-google-vignette="false">문제 URL</a></p>
     <hr>
     <p>정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 2개의 수를 뽑아 더해 만들 수 있는 모든 수를 배열에 오름차순으로 담아 반환하는 solution( ) 함수를 완성하세요.</p>
     <h3 id="_1">제약조건</h3>
@@ -69,7 +69,7 @@
         <li><strong>02단계</strong> 과정 1에서 구한 수를 새로운 배열에 저장하고 중복값을 제거합니다.</li>
         <li><strong>03단계</strong> 배열을 오름차순으로 정렬하고 반환합니다.</li>
     </ul>
-<p>배열에서 두 수를 선택하는 방법은 다음 그림처럼 각 수에서 자신보다 뒤에 있는 수를 선택하면 됩니다. 빠짐 없이 모든 두 수를 선택할 수 있습니다.</p>
+<p>배열에서 두 수를 선택하는 방법은 각 수에서 자신보다 뒤에 있는 수를 선택하면 됩니다. 빠짐 없이 모든 두 수를 선택할 수 있습니다.</p>
 <pre><code>
 def solution(numbers):
     ret = [ ]  # 1. 빈 배열 생성
@@ -87,5 +87,5 @@ def solution(numbers):
     <p>3. 표와 같이 구한 합을 변수 ret에 append( ) 메서드로 리스트에 추가합니다. 중복값을 제거하기 전이므로 지금은 [5, 7, 12, 2, 7, 9]입니다.</p>
     <p>4. 이후 sorted( ) 함수로 중복값을 제거한 ret을 오름차순으로 정렬해 반환하면 문제 풀이는 끝입니다.</p>
     <h3 id="_4">시간 복잡도 분석하기</h3>
-    <p>N은 numbers의 길이입니다. 모든 조합을 확인하는 과정에서 중복을 체크하는 데 O(N2)이 걸립니다. 그리고 이를 정렬하는 데 O(N2log(N2))이 걸리므로 최종 시간 복잡도는 O(N2log(N2))입니다. 다만 N = 100이므로 시간 복잡도를 이렇게 해도 문제를 푸는 데는 크게 영향이 없습니다.</p>
+    <p>N은 lst의 길이입니다. lst의 중복 원소를 제거하는 데 걸리는 시간 복잡도는 O(N)이고, 이를 다시 정렬하는 데 걸리는 시간 복잡도는 O(NlogN)이므로 최종 시간 복잡도는 O(NlogN)입니다.</p>
 </div>
