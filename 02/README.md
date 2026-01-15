@@ -35,6 +35,7 @@
 <div class="page-content tex2jax_process">
     <h1>문제 02 배열 제어하기★★</h1>
     <p>저자 권장 시간 _ 10분 | 권장 시간 복잡도 _ O(NlogN) | 출제 _ 저자 출제</p>
+    <p><a href="https://github.com/dremdeveloper/codingtest_python/blob/main/solution/02.py" data-google-vignette="false">깃허브 URL</a></p>
     <hr>
     <p>정수 배열을 하나 받습니다. 배열의 중복값을 제거하고 배열 데이터를 내림차순으로 정렬해서 반환하는 solution( ) 함수를 구현하세요.</p>
     <h3 id="_1">제약조건</h3>

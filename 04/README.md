@@ -33,11 +33,11 @@
 </style>
 
 <div class="page-content tex2jax_process">
-    <h1>문제 03 두 개 뽑아서 더하기★</h1>
-    <p>정답률 _ 68% | 저자 권장 시간 _ 30분 | 권장 시간 복잡도 _ O(N2log(N2)) | 출제 _ 월간 코드 챌린지</p>
-    <p><a href="https://programmers.co.kr/learn/courses/30/lessons/68644" data-google-vignette="false">문제 URL</a></p>
+    <h1>문제 04 모의고사★</h1>
+    <p>정답률 _ 62% | 저자 권장 시간 _ 30분 | 권장 시간 복잡도 _ O(N) | 출제 _ 완전 탐색</p>
+    <p><a href="https://school.programmers.co.kr/learn/courses/30/lessons/42840" data-google-vignette="false">문제 URL</a></p>
     <hr>
-    <p>정수 배열 numbers가 주어집니다. numbers에서 서로 다른 인덱스에 있는 2개의 수를 뽑아 더해 만들 수 있는 모든 수를 배열에 오름차순으로 담아 반환하는 solution( ) 함수를 완성하세요.</p>
+    <p>수포자는 수학을 포기한 사람을 줄인 표현입니다. 수포자 삼인방은 모의고사에 수학 문제를 전부 찍으려 합니다. 수포자는 1번 문제부터 마지막 문제까지 다음과 같이 찍습니다.</p>
     <h3 id="_1">제약조건</h3>
     <ul>
         <li>numbers의 길이는 2 이상 100 이하입니다.</li>
