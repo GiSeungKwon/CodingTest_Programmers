@@ -5,7 +5,7 @@ def solution(param_list):
     result = []
     for i in range(len(param_list)):
         for j in range(i+1, len(param_list)):
-            result.append(param_list[i]+param_list[j])
+            result.append(param_list[i] + param_list[j])
     return sorted(set(result))
 
 print(case1, "->", solution(case1))

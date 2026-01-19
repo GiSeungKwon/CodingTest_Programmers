@@ -1,45 +1,38 @@
-import ast
+case1 = [1,2,3,4,5] # [1]
+case2 = [1,3,2,4,2] # [1,2,3]
 
-def to_list(param_text):
-    return ast.literal_eval(param_text)
+def solution(param_list):
+    answer = param_list
+    patterns = [
+        [1,2,3,4,5],
+        [2,1,2,3,2,4,2,5],
+        [3,3,1,1,2,2,4,4,5,5]
+    ]
+    correct = [0 for _ in range(len(patterns))]
+    print(f"correct: {correct}")
 
-def make_pattern(param_list):
-    person1 = [1, 2, 3, 4, 5]
-    person2 = [2, 1, 2, 3, 2, 4, 2, 5]
-    person3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+    # for i in range(len(answer)):
+    #     for j in range(len(patterns)):
+    #         if answer[i] == patterns[j][i%len(patterns[j])]:
+    #             print(f"answer[{i}]:{answer[i]} == patterns[{j}][{i%len(patterns[j])}: {patterns[j][i%len(patterns[j])]}")
+    #             correct[j] += 1
+    # print(correct)
 
-    person1 = person1 * ((len(param_list) // len(person1)) + 1)
-    person1 = person1[:len(param_list)]
+    for i, item in enumerate(answer):
+        for j, jtem in enumerate(patterns):
+            print(f"j: {i%len(jtem)} jtem: {jtem} jtem[{i%len(jtem)}]: {jtem[i%len(jtem)]}")
+            if item == jtem[i%len(jtem)]:
+                correct[j] += 1
+            print(f"correct[{j}]: {correct[j]}")
+    print(correct)
 
-    person2 = person2 * ((len(param_list) // len(person2)) + 1)
-    person2 = person2[:len(param_list)]
-
-    person3 = person3 * ((len(param_list) // len(person3)) + 1)
-    person3 = person3[:len(param_list)]
-    return param_list, person1, person2, person3
-
-def count_correct(answer, person1, person2, person3):
-    count_correct_list = [0, 0, 0]
-    for i in range(len(answer)):
-        if answer[i] == person1[i]:
-            count_correct_list[0] += 1
-        if answer[i] == person2[i]:
-            count_correct_list[1] += 1
-        if answer[i] == person3[i]:
-            count_correct_list[2] += 1
-        print()
-    return count_correct_list
-
-def return_index(param_count_correct_list):
-    max_value = max(param_count_correct_list)
     result = []
-    for i in range(len(param_count_correct_list)):
-        if param_count_correct_list[i] == max_value:
+    max_value = max(correct)
+    print(f"max_value: {max_value}")
+    for i, item in enumerate(correct):
+        if max_value == item:
             result.append(i+1)
     return result
 
-def solution():
-    answer, person1, person2, person3 = make_pattern(to_list(input()))
-    return return_index(count_correct(answer, person1, person2, person3))
-
-print(solution())
+print(case1, "->", solution(case1))
+print(case2, "->", solution(case2))
