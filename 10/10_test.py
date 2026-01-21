@@ -26,7 +26,7 @@ def solution(param_str):
     return count
 
 print(case1, "->", solution(case1))
-# print(case2, "->", solution(case2))
-# print(case3, "->", solution(case3))
-# print(case4, "->", solution(case4))
-# print(case5, "->", solution(case5))
+print(case2, "->", solution(case2))
+print(case3, "->", solution(case3))
+print(case4, "->", solution(case4))
+print(case5, "->", solution(case5))
