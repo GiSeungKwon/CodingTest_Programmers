@@ -1,3 +1,4 @@
+case0 = 28 # 11100
 case1 = 10 # 1010
 case2 = 27 # 11011
 case3 = 12345 # 11000000111001
@@ -14,6 +15,7 @@ def solution(param_int):
     return "".join(result[::-1])
     # return "".join(reversed(result))
 
+print(case0, "->", solution(case0))
 print(case1, "->", solution(case1))
 print(case2, "->", solution(case2))
 print(case3, "->", solution(case3))

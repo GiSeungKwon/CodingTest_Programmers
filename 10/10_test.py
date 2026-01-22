@@ -4,29 +4,33 @@ case3 = "[)(]" # 0
 case4 = "}}}" # 0
 case5 = "({)}" # 0
 
-def solution(param_str):
-    pair = {"]":"[", "}":"{", ")":"("}
+def solution(str):
     count = 0
-    for i in range(len(param_str)):
-        # print(f"i:{i} param_str:{param_str}")
-        result = []
-        is_valid = True
-        for char in param_str:
-            if char in "[{(":
-                result.append(char)
-                # print(f"char:{char} result:{result}")
+    for i in range(len(str)):
+        print(f"str:{str}")
+        stack = []
+        pair = {")":"(", "}":"{", "]":"["}
+        for char in str:
+            is_valid = False
+            if char in "({[":
+                stack.append(char)
+                print(f"stack.append('{char}') -> stack:{stack}")
             else:
-                if not result or result.pop() != pair[char]:
-                    # print(f"char:{char} result:{result} - pair[{char}]: {pair[char]}")
-                    is_valid = False
+                if not stack:
                     break
-        if is_valid and not result:
+                else:
+                    if stack.pop() == pair[char]:
+                        print(f"stack.pop('{pair[char]}') -> stack:{stack}")
+                        is_valid = True
+        if is_valid and not stack:
             count += 1
-        param_str = param_str[1:]+param_str[0]
+            print(count)
+        str = str[1:]+str[0]
+        print()
     return count
 
-print(case1, "->", solution(case1))
+# print(case1, "->", solution(case1))
 print(case2, "->", solution(case2))
-print(case3, "->", solution(case3))
-print(case4, "->", solution(case4))
-print(case5, "->", solution(case5))
+# print(case3, "->", solution(case3))
+# print(case4, "->", solution(case4))
+# print(case5, "->", solution(case5))
