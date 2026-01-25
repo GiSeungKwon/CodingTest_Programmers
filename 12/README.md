@@ -33,36 +33,30 @@
 </style>
 
 <div class="page-content tex2jax_process">
-    <h1>문제 11 짝지어 제거하기★</h1>
-    <p>정답률 _ 71% | 저자 권장 시간 _ 30분 | 권장 시간 복잡도 _ O(N) | 출제 _ 2017 팁스타운</p>
-    <p><a href="https://programmers.co.kr/learn/courses/30/lessons/12973" data-google-vignette="false">문제 URL</a></p>
+    <h1>문제 12 주식 가격★★</h1>
+    <p>정답률 _ 57% | 저자 권장 시간 _ 40분 | 권장 시간 복잡도 _ O(N) | 출제 _ 스택/큐</p>
+    <p><a href="https://programmers.co.kr/learn/courses/30/lessons/42584" data-google-vignette="false">문제 URL</a></p>
     <hr>
-    <p>알파벳 소문자로 구성된 문자열에서 같은 알파벳이 2개 붙어 있는 짝을 찾습니다. 짝을 찾은 다음에는 그 둘을 제거한 뒤 앞뒤로 문자열을 이어붙입니다. 이 과정을 반복해서 문자열을 모두 제거한다면 짝지어 제거하기가 종료됩니다. 문자열 S가 주어졌을 때 짝지어 제거하기를 성공적으로 수행할 수 있는지 반환하는 함수를 완성하세요. 성공적으로 수행할 수 있으면 1을, 아니면 0을 반환해주면 됩니다. 예를 들어 문자열 S가 baabaa라면</p>
-    <ul><li>baabaa → bbaa → aa</li></ul>
-    <p>순서로 문자열을 모두 제거할 수 있으므로 1을 반환합니다.</p>
+    <p>초 단위로 기록된 주식 가격이 담긴 배열 prices가 매개변수로 주어질 때, 가격이 떨어지지 않은 기간은 몇 초인지를 반환하도록 solution( ) 함수를 완성하세요.</p>
 <!-- -->
     <h3>제약조건</h3>
     <ul>
-        <li>문자열의 길이 : 1,000,000 이하의 자연수</li>
-        <li>문자열은 모두 소문자로 이루어져 있습니다.</li>
+        <li>prices의 각 가격은 1 이상 10,000 이하인 자연수입니다.</li>
+        <li>prices의 길이는 2 이상 100,000 이하입니다.</li>
     </ul>
 <!-- -->
     <h3>입출력의 예</h3>
     <table class="result-table">
         <thead>
             <tr>
-                <th>s</th>
-                <th>result</th>
+                <th>prices</th>
+                <th>return</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>"baabaa"</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>"cdcd"</td>
-                <td>0</td>
+                <td>[1,2,3,2,3]</td>
+                <td>[4,3,1,1,0]</td>
             </tr>
         </tbody>
     </table>
