@@ -1,0 +1,1 @@
+print(f"{char} -> stack:{stack} not stack:{not stack} stack[-1]{stack[-1]} != char{char}: {stack[-1] != char} -> return False")
