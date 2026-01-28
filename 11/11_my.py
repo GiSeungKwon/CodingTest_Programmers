@@ -7,14 +7,11 @@ def solution(str):
         if not stack:
             stack.append(char)
         else:
-            if stack[-1] == char:
-                stack.pop()
-            else:
+            if stack[-1] != char:
                 stack.append(char)
-    if not stack:
-        return 1
-    else:
-        return 0
+            else:
+                stack.pop()
+    return 1 if not stack else 0
 
 print(case1, "->", solution(case1))
 print(case2, "->", solution(case2))
