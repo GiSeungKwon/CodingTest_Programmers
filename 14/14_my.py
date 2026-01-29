@@ -2,50 +2,61 @@ case1_1,case1_2,case1_3 = 8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z"] #"OO
 case2_1,case2_2,case2_3 =8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z","U 1","C"] #"OOXOXOOO"
 
 def solution(n, k, cmds):
-    # 1. 양방향 연결 리스트 초기화 {현재: [이전, 다음]}
-    # 리스트 인덱스를 활용해 빠르게 접근하기 위해 배열을 사용합니다.
-    linked_list = [[i - 1, i + 1] for i in range(n)]
-    linked_list[0][0] = None        # 첫 번째 행의 이전은 없음
-    linked_list[n - 1][1] = None    # 마지막 행의 다음은 없음
-    print(f"linked_list:{linked_list}")
+    roll_back_stack = []
+    not_deleted = ["O"] * n
 
-    answer = ["O"] * n
-    stack = []  # 삭제된 노드 정보를 담을 스택
-
+    Llist = [[i-1,i,i+1] for i in range(n)]
+    Llist[0][0] = None
+    Llist[-1][-1] = None
+    print(Llist)
+    
     for cmd in cmds:
-        if cmd == "C":  # 삭제
-            answer[k] = "X"
-            prev, next = linked_list[k]
-            stack.append((k, prev, next))
-            
-            # 연결 고리 수정 (나를 건너뛰게 만들기)
-            if prev is not None:
-                linked_list[prev][1] = next
+        # 삭제
+        if cmd == "C":
+            print(f"\tk:{k} cmd:{cmd}=[Delete]", end=" ")
+            pre, now, next = Llist[k]
+            print(f"\tLlist[{k}]:{Llist[k]} pre:{pre}, now:{now}, next:{next}", end=" ")
+            not_deleted[now] = "X"
+            print(f"\tnot_deleted[now]: = 'X' not_deleted:{not_deleted}", end=" ")
+            roll_back_stack.append(now)
+            print(f"\troll_back_stack.append({now}) roll_back_stack:{roll_back_stack}")
+            if pre is not None:
+                Llist[pre][-1] = next
             if next is not None:
-                linked_list[next][0] = prev
-                k = next  # 다음 행으로 이동
+                Llist[next][0] = pre
+                k = next
             else:
-                k = prev  # 마지막 행이면 이전 행으로 이동
-                
-        elif cmd == "Z":  # 복구
-            node, prev, next = stack.pop()
-            answer[node] = "O"
-            
-            # 예전 앞뒤 사람들에게 다시 나를 연결
-            if prev is not None:
-                linked_list[prev][1] = node
+                k = pre
+            print(f"Llist: {Llist}")
+
+        # Roll_Back
+        elif cmd == "Z":
+            roll_back_index = roll_back_stack.pop()
+            print(f"roll_back_index:{roll_back_index}", end=" ")
+            pre, now, next = Llist[roll_back_index]
+            print(f"\tLlist[{roll_back_index}]:{Llist[roll_back_index]} pre:{pre}, now:{now}, next:{next}", end=" ")
+            not_deleted[now] = "O"
+            print(f"\tnot_deleted[now]: = 'O' not_deleted:{not_deleted}", end=" ")
+            if pre is not None:
+                Llist[pre][-1] = now
             if next is not None:
-                linked_list[next][0] = node
-                
-        else:  # 이동 (U/D)
-            dir, x = cmd.split()
-            x = int(x)
-            # 연결 리스트를 타고 x번만큼 점프!
-            for _ in range(x):
-                k = linked_list[k][0] if dir == "U" else linked_list[k][1]
+                Llist[next][0] = now
+            print(f"Llist: {Llist}")
+        
+        # 방향 이동
+        else:
+            dir, x = cmd.split(" ")
+            print(f"dir: {dir} x:{x} k:{k} ->")
+            if dir == "U":
+                for i in range(int(x)):
+                    k = Llist[k][0]
+                    print(f"k=Llist[{k}][0] : {k}")
+            elif dir == "D":
+                for i in range(int(x)):
+                    k = Llist[k][2]
+                    print(f"k=Llist[{k}][0] : {k}")
 
-    return "".join(answer)
-
+    return "".join(not_deleted)
 
 print(case1_1,case1_2,case1_3)
 print(solution(case1_1,case1_2,case1_3))

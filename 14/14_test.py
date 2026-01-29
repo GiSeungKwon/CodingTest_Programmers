@@ -2,61 +2,71 @@ case1_1,case1_2,case1_3 = 8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z"] #"OO
 case2_1,case2_2,case2_3 =8,2,["D 2","C","U 3","C","D 4","C","U 2","Z","Z","U 1","C"] #"OOXOXOOO"
 
 def solution(n, k, cmds):
-    roll_back_stack = []
-    not_deleted = ["O"] * n
-
-    Llist = [[i-1,i,i+1] for i in range(n)]
+    result = ["O"] * n
+    Llist = [[i-1, i, i+1] for i in range(n)]
     Llist[0][0] = None
     Llist[-1][-1] = None
-    print(Llist)
-    
+    print(f"Llist:{Llist}")
+    stack = []
+
     for cmd in cmds:
-        # 삭제
+        print(f"cmd:{cmd}",end=" ")
         if cmd == "C":
-            print(f"\tk:{k} cmd:{cmd}=[Delete]", end=" ")
+            stack.append(k)
+            print(f"  stack.append({k})->stack:{stack}")
+            result[k] = "X"
+            print(f"  result[{k}]='X' -> result:{result}")
             pre, now, next = Llist[k]
-            print(f"\tLlist[{k}]:{Llist[k]} pre:{pre}, now:{now}, next:{next}", end=" ")
-            not_deleted[now] = "X"
-            print(f"\tnot_deleted[now]: = 'X' not_deleted:{not_deleted}", end=" ")
-            roll_back_stack.append(now)
-            print(f"\troll_back_stack.append({now}) roll_back_stack:{roll_back_stack}")
+            print(f"  pre:{pre} now:{now} next:{next} Llist[{k}]:{Llist[k]}")
+
             if pre is not None:
+                print(f"    pre:{pre} is not None")
                 Llist[pre][-1] = next
+                print(f"      Llist[pre][-1]:{Llist[pre][-1]} = next:{next}")
+
             if next is not None:
+                print(f"    next:{next} is not None")
                 Llist[next][0] = pre
+                print(f"      Llist[next][0]:{Llist[next][0]} = pre:{pre}")
                 k = next
             else:
+                print(f"    k:{k} -> k = pre:{pre}", end = " ")
                 k = pre
-            print(f"Llist: {Llist}")
+                print(f"k:{k}")
+            print(f"        Llist:{Llist} k:{k}")
+            print()
 
-        # Roll_Back
         elif cmd == "Z":
-            roll_back_index = roll_back_stack.pop()
-            print(f"roll_back_index:{roll_back_index}", end=" ")
-            pre, now, next = Llist[roll_back_index]
-            print(f"\tLlist[{roll_back_index}]:{Llist[roll_back_index]} pre:{pre}, now:{now}, next:{next}", end=" ")
-            not_deleted[now] = "O"
-            print(f"\tnot_deleted[now]: = 'O' not_deleted:{not_deleted}", end=" ")
+            idx = stack.pop()
+            print(f"  idx:{idx} = stack.pop()")
+            result[idx] = "O"
+            print(f"  result[idx]:{result[idx]} = 'X' result:{result}")
+            pre, now, next = Llist[idx]
+            print(f"  pre:{pre} now:{now} next:{next} Llist[{idx}]:{Llist[idx]}")
             if pre is not None:
+                print(f"    if pre:{pre} is not None:")
                 Llist[pre][-1] = now
+                print(f"      Llist[pre][-1]:{Llist[pre][-1]} = now:{now}")
             if next is not None:
+                print(f"    if next:{next} is not None:")
                 Llist[next][0] = now
-            print(f"Llist: {Llist}")
-        
-        # 방향 이동
-        else:
-            dir, x = cmd.split(" ")
-            print(f"dir: {dir} x:{x} k:{k} ->")
-            if dir == "U":
-                for i in range(int(x)):
-                    k = Llist[k][0]
-                    print(f"k=Llist[{k}][0] : {k}")
-            elif dir == "D":
-                for i in range(int(x)):
-                    k = Llist[k][2]
-                    print(f"k=Llist[{k}][0] : {k}")
+                print(f"      Llist[next][0]:{Llist[next][0]} = pre:{pre}")
+            print()
 
-    return "".join(not_deleted)
+        else:
+            direct, x = cmd.split(" ")
+            print(f" k:{k}",end=" -> ")
+            if direct == "D":
+                for _ in range(int(x)):
+                    k = Llist[k][-1]
+                    print(f"k:{k}", end=" -> ")
+            else:
+                for _ in range(int(x)):
+                    k = Llist[k][0]
+                    print(f"k:{k}", end=" -> ")
+            print()
+        print()
+    return "".join(result)
 
 print(case1_1,case1_2,case1_3)
 print(solution(case1_1,case1_2,case1_3))
