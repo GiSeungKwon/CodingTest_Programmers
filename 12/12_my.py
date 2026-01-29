@@ -3,6 +3,7 @@ case1 = [1,2,3,2,3]
 def solution(prices):
     stack = []
     period = [0] * len(prices)
+    
     for i in range(len(prices)):
         while stack and prices[i] < prices[stack[-1]]:
             j = stack.pop()

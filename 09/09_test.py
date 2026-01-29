@@ -6,7 +6,17 @@ case4 = 0 # 0
 case5 = 1 # 1
 case6 = 2 # 10
 
-
+def solution(decimal):
+    stack = []
+    while(decimal // 2 != 0):
+        stack.append(str(decimal%2))
+        decimal //= 2
+    if decimal % 2 == 1:
+        stack.append("1")
+    else:
+        stack.append("0")
+    return "".join(stack)[::-1]
+    # return "".join(reversed(stack))
 
 print(case0, "->", solution(case0))
 print(case1, "->", solution(case1))
