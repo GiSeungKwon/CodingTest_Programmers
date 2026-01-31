@@ -87,7 +87,7 @@
 <pre><code>
 def is_valid_move(nx, ny) : # ➊ 좌표평면을 벗어나는지 체크하는 함수
   return 0 <= nx < 11 and 0 <= ny < 11
-
+<br>
 def update_location(x, y, dir) : # ➋ 명령어를 통해 다음 좌표 결정
   if dir == 'U':
     nx, ny = x, y + 1
@@ -98,7 +98,7 @@ def update_location(x, y, dir) : # ➋ 명령어를 통해 다음 좌표 결정
   elif dir == 'R':
     nx, ny = x + 1, y
   return nx, ny
-
+<br>
 def solution(dirs):
   x, y = 5, 5
   ans = set( ) # ➌ 겹치는 좌표는 1개로 처리하기 위함

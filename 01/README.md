@@ -84,7 +84,7 @@ def solution(arr):
     <p>sort( ) 메서드를 사용하지 않고 O(N<sup>2</sup>) 정렬 알고리즘으로 배열 원소를 정렬하는 연산을 구현하면 시간 차이는 얼마나 벌어질까요? 다음 코드를 봅시다.</p>
     <pre><code>
 import time
-
+<br>
 def bubble_sort(arr):  # 버블 정렬로 정렬하기
     n = len(arr)
         for i in range(n):
@@ -92,30 +92,30 @@ def bubble_sort(arr):  # 버블 정렬로 정렬하기
                 if arr[j] > arr[j + 1]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
-
+<br>
 def do_sort(arr):  # sort( ) 함수로 배열 정렬하기
     arr.sort( ) 
     return arr
-
+<br>
 def measure_time(func, arr):  # 시간을 측정하고 뒤집힌 배열 반환
     start_time = time.time( ) 
     result = func(arr)
     end_time = time.time( ) 
     return end_time - start_time, result
-
+<br>
 arr = list(range(10000))
-
+<br>
 #첫 번째 코드 시간 측정
 #첫 번째 코드 실행 시간 : 3.9616279602
 bubble_time, bubble_result = measure_time(bubble_sort, arr)
 print("첫 번째 코드 실행 시간:", format(bubble_time, ".10f"))
-
+<br>
 #두 번째 코드 시간 측정
 #두 번째 코드 실행 시간 : 0.0000560284
 arr = list(range(10000))
 reverse_time, reverse_result = measure_time(do_sort, arr)
 print("두 번째 코드 실행 시간:", format(sort_time, ".10f"))
-
+<br>
 #두 개의 코드의 결과가 동일한지 확인
 print("두 개의 코드의 결과가 동일한지 확인:", bubble_result == sort_result)  # True 
 </code></pre>
